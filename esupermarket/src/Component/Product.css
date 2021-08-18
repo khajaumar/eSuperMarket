@@ -1,0 +1,16 @@
+.product{
+    background-color: aquamarine;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+}
+.productlist{
+    background-color: salmon;
+    margin: 10px;
+    padding: 10px;
+}
+.cart{
+    background-color: yellow;
+    margin: 10px;
+    padding: 10px;
+}
