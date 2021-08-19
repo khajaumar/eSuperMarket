@@ -1,16 +1,12 @@
 .product{
-    background-color: aquamarine;
-    margin: 5px;
+    background-color: #2B2B2B;
     padding: 5px;
     text-align: center;
+    color: black;
 }
 .productlist{
-    background-color: salmon;
+    background-color: #362222;
     margin: 10px;
     padding: 10px;
 }
-.cart{
-    background-color: yellow;
-    margin: 10px;
-    padding: 10px;
-}
+/* ( #171010,#423F3E,#2B2B2B) */
