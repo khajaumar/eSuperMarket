@@ -1,15 +1,32 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect} from 'react';
+import { useDispatch } from 'react-redux';
 // import { Topnave } from './Topnave';
 import '../Component/Product.css'
 import { NaveBar } from './NaveBar';
-// import { carouselProduct } from '../Component/Carousel';
+// import { CarouselProduct } from './CarouselProduct';
 import { ProductList } from "../Component/ProductList";
+import {getProducts} from "../service/products"
+
+
 export const Home = () => {
+    const dispatch = useDispatch();
+
+    const allProducts = async ()=>{
+        const productsList = await getProducts();
+        console.log(productsList)
+        dispatch({
+            type: "ADD_DATA",
+            data: productsList,
+        })
+    
+      }
+      useEffect(()=>{
+        allProducts();
+      }, [])
     return (
         <React.Fragment>
             <NaveBar/>
-            {/* <carouselProduct/> */}
+            {/* <CarouselProduct/> */}
             {/* <Topnave/> */}
             <ProductList/>
         </React.Fragment>
