@@ -1,4 +1,4 @@
-import React, { useEffect} from 'react';
+import React, { useEffect, useState} from 'react';
 import { useDispatch } from 'react-redux';
 // import { Topnave } from './Topnave';
 import '../Component/Product.css'
@@ -9,6 +9,8 @@ import {getProducts} from "../service/products"
 
 
 export const Home = () => {
+    const [searchTxt, setSearchTxt]= useState(" ");
+
     const dispatch = useDispatch();
 
     const allProducts = async ()=>{
@@ -22,13 +24,15 @@ export const Home = () => {
       }
       useEffect(()=>{
         allProducts();
-      }, [])
+      }, []);
+     
+      
     return (
         <React.Fragment>
-            <NaveBar/>
+            <NaveBar setSearchTxt={setSearchTxt}/>
             {/* <CarouselProduct/> */}
             {/* <Topnave/> */}
-            <ProductList/>
+            <ProductList searchTxt={searchTxt}/>
         </React.Fragment>
     );
 };

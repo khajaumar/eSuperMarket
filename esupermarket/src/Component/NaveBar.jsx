@@ -6,9 +6,9 @@ import PersonIcon from '@material-ui/icons/Person';
 
 import { useSelector } from "react-redux";
 
-export const NaveBar = () => {
+export const NaveBar = ({setSearchTxt}) => {
     const products = useSelector((state) => state.productReducer.product);
-
+   
     return (
         <div>
             <Navbar bg="dark" expand="lg">
@@ -36,6 +36,7 @@ export const NaveBar = () => {
         placeholder="Search"
         className="mr-2"
         aria-label="Search"
+        onChange={(e)=> setSearchTxt(e.target.value)}
         
       />
       <Button variant="dark"><SearchIcon/></Button>
