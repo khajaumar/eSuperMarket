@@ -1,4 +1,4 @@
-export const productReducer=(state={product:["titan watch"]}, action)=>{
+export const productReducer=(state={product:[]}, action)=>{
 if(action.type=== "ADD_DATA" ) {
     
     return{
@@ -6,7 +6,13 @@ if(action.type=== "ADD_DATA" ) {
         product: [...action.data],
 };
 
-}   
+} 
+if(action.type=== "SELECTED_PROD_ID"){
+    return{
+        ...state,
+        selectedid: action.data,
+    }
+}  
 if(action.type=== "REMOVE_PRODUCT"){
    
     state.product.pop();

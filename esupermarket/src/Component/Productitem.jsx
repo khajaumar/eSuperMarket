@@ -40,6 +40,11 @@ export const Productitem= ({item}) =>{
                  
              </Row>
              </Card>
+             <Row><Button
+             onClick={()=>dispatch({
+                 type: "SELECTED_PROD_ID",
+                 data: item.id,
+             })}>Details</Button></Row>
         </Card>
 
     )
