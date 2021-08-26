@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Nav, Form, FormControl, Button, NavDropdown, Navbar } from 'react-bootstrap';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import SearchIcon from '@material-ui/icons/Search';
@@ -8,7 +8,13 @@ import { useSelector } from "react-redux";
 
 export const NaveBar = ({setSearchTxt}) => {
     const products = useSelector((state) => state.productReducer.product);
-   
+    const [prods, setProds] = useState([]);
+    useEffect(()=>{
+    setProds([...products]);
+    },[products]);
+    const catArr=[];
+    {prods.map((item)=>(catArr.push(item.category)))};
+    const newArr=[...new Set(catArr)];
     return (
         <div>
             <Navbar bg="dark" expand="lg">
@@ -23,10 +29,9 @@ export const NaveBar = ({setSearchTxt}) => {
       <Nav.Link href="#action1">Home</Nav.Link>
       <Nav.Link href="#action2">Products</Nav.Link>
       <NavDropdown title="Category" id="navbarScrollingDropdown">
-        <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-        <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
+      {newArr.map((item)=>(
+        <NavDropdown.Item href="#action3">{item}</NavDropdown.Item>
+      ))}
       </NavDropdown>
       
     </Nav>
@@ -53,3 +58,9 @@ export const NaveBar = ({setSearchTxt}) => {
         </div>
     );
 };
+
+
+
+{/* <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item> */}

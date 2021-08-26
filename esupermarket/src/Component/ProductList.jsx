@@ -22,7 +22,7 @@ export const ProductList=({searchTxt})=>{
         <Row>
             {prods.map((item)=>(
             <Col md={3}><Productitem item={item}/></Col>
-            ))};
+            ))}
         </Row>
         </Card>
         </div>
